@@ -19,7 +19,7 @@ st.markdown("""
 st.title("Shopping List Generator")
 st.write("Select recipes and generate a shopping list organized by category.")
 
-# Sample recipe data (replace with your actual data)
+# Recipe Data
 recipes = {
     "Buttermilk Green Goddess Slaw": {
         "ingredients": [
@@ -161,7 +161,7 @@ shopping_list = defaultdict(float)
 # Create a multi-select dropdown to select recipes
 selected_recipes = st.multiselect("Select Recipes:", list(recipes.keys()))
 
-# Function to format quantity
+# Quantity format function
 def format_quantity(quantity, unit):
     if unit == "null":
         return str(int(quantity))
@@ -170,7 +170,7 @@ def format_quantity(quantity, unit):
     else:
         return "{:.2f}".format(quantity) + " " + unit
 
-# Function to generate the shopping list
+#  Shopping list generator function!
 def generate_shopping_list(selected_recipes, recipes):
     shopping_list = defaultdict(float)
     selected_recipe_info = []  # List to store selected recipes and URLs
@@ -214,7 +214,7 @@ if st.button("Generate Shopping List"):
     for recipe_name, url in selected_recipe_info:
         st.write(f"- {recipe_name}: {url}")
 
-# Download shopping list as a .txt file with a custom name including today's date
+# Download shopping list as a .txt file with today's date
 if shopping_list:
     # Get today's date and format it as MM_DD_YYYY
     today_date = datetime.today().strftime("%m_%d_%Y")
