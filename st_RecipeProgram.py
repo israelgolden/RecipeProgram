@@ -192,17 +192,22 @@ def generate_shopping_list(selected_recipes, recipes):
 
     return shopping_list, selected_recipe_info
 
+# Display shopping list organized by category with items sorted alphabetically
 if st.button("Generate Shopping List"):
     shopping_list, selected_recipe_info = generate_shopping_list(selected_recipes, recipes)
 
-    # Display shopping list organized by category
-    categories = set(category for (category, _, _) in shopping_list.keys())
+    # Sort the categories alphabetically
+    categories = sorted(set(category for (category, _, _) in shopping_list.keys()))
+    
     for category in categories:
         st.subheader(f"{category}:")
-        for (cat, ingredient, unit), total_quantity in shopping_list.items():
-            if category == cat:
-                formatted_quantity = format_quantity(total_quantity, unit)
-                st.write(f"- {formatted_quantity} {ingredient}")
+        
+        # Sort the items within each category alphabetically
+        sorted_items = sorted([(ingredient, unit, quantity) for (cat, ingredient, unit), quantity in shopping_list.items() if cat == category], key=lambda x: x[0])
+        
+        for ingredient, unit, total_quantity in sorted_items:
+            formatted_quantity = format_quantity(total_quantity, unit)
+            st.write(f"- {formatted_quantity} {ingredient}")
 
     # Display selected recipes and their URLs
     st.subheader("Selected Recipes and URLs:")
