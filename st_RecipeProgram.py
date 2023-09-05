@@ -171,6 +171,8 @@ def format_quantity(quantity, unit):
 # Function to generate the shopping list
 def generate_shopping_list(selected_recipes, recipes):
     shopping_list = defaultdict(float)
+    selected_recipe_info = []  # List to store selected recipes and URLs
+
     for recipe_name in selected_recipes:
         recipe = recipes[recipe_name]
         ingredients = recipe["ingredients"]
@@ -183,24 +185,37 @@ def generate_shopping_list(selected_recipes, recipes):
             # Combine quantities for shared ingredients
             shopping_list[(category, ingredient, unit)] += quantity
 
-    return shopping_list
+        # Add selected recipe and its URL to the list
+        selected_recipe_info.append((recipe_name, recipe["url"]))
+
+    return shopping_list, selected_recipe_info
 
 if st.button("Generate Shopping List"):
-    shopping_list = generate_shopping_list(selected_recipes, recipes)
+    shopping_list, selected_recipe_info = generate_shopping_list(selected_recipes, recipes)
 
     # Display shopping list organized by category
     categories = set(category for (category, _, _) in shopping_list.keys())
     for category in categories:
         st.subheader(f"{category}:")
-
         for (cat, ingredient, unit), total_quantity in shopping_list.items():
             if category == cat:
                 formatted_quantity = format_quantity(total_quantity, unit)
                 st.write(f"- {formatted_quantity} {ingredient}")
 
+    # Display selected recipes and their URLs
+    st.subheader("Selected Recipes and URLs:")
+    for recipe_name, url in selected_recipe_info:
+        st.write(f"- {recipe_name}: {url}")
+
 # Download shopping list as a .txt file
 if shopping_list:
     txt_data = "\n\n".join([f"{category}:\n" + "\n".join([f"- {format_quantity(quantity, unit)} {ingredient}" for (cat, ingredient, unit), quantity in shopping_list.items() if cat == category]) for category in categories])
+    
+    # Include selected recipes and URLs in the .txt file content
+    txt_data += "\n\nSelected Recipes and URLs:\n"
+    for recipe_name, url in selected_recipe_info:
+        txt_data += f"- {recipe_name}: {url}\n"
+    
     st.subheader("Download Shopping List")
     st.text_area("Shopping List Text", txt_data)
     st.download_button("Download Shopping List (.txt)", txt_data, key="download_btn")
