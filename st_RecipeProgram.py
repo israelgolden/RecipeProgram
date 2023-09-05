@@ -2,6 +2,17 @@ import streamlit as st
 import pandas as pd
 from collections import defaultdict
 
+# Let's get rid of the "Made with Streamlit" at the bottom of the page
+sl.markdown("""
+<style>
+.css-cio0dv.ea3mdgi1
+{
+            visibility: hidden;
+}            
+</style>
+""", unsafe_allow_html= True
+)
+
 # Title and description
 st.title("Shopping List Generator")
 st.write("Select recipes and generate a shopping list organized by category.")
