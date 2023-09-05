@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 from collections import defaultdict
+import click
+from datetime import datetime
 
 # Let's get rid of the "Made with Streamlit" at the bottom of the page
 st.markdown("""
@@ -207,18 +209,29 @@ if st.button("Generate Shopping List"):
     for recipe_name, url in selected_recipe_info:
         st.write(f"- {recipe_name}: {url}")
 
-# Download shopping list as a .txt file
+# Download shopping list as a .txt file with a custom name including today's date
 if shopping_list:
+    # Get today's date and format it as MM_DD_YYYY
+    today_date = datetime.today().strftime("%m_%d_%Y")
+    # Create the custom filename
+    filename = f"ShoppingList_{today_date}.txt"
+
     txt_data = "\n\n".join([f"{category}:\n" + "\n".join([f"- {format_quantity(quantity, unit)} {ingredient}" for (cat, ingredient, unit), quantity in shopping_list.items() if cat == category]) for category in categories])
     
     # Include selected recipes and URLs in the .txt file content
     txt_data += "\n\nSelected Recipes and URLs:\n"
     for recipe_name, url in selected_recipe_info:
         txt_data += f"- {recipe_name}: {url}\n"
-    
+
+    # Create a temporary file and write the data to it
+    with open(filename, "w") as f:
+        f.write(txt_data)
+
+    # Use click to create a download link with the custom filename
     st.subheader("Download Shopping List")
-    st.text_area("Shopping List Text", txt_data)
-    st.download_button("Download Shopping List (.txt)", txt_data, key="download_btn")
+    with open(filename, "rb") as f:
+        st.download_button(label=f"Download Shopping List", data=f, key="download_btn", file_name=filename)
+
 
 # Create a DataFrame with all recipes from the dictionary
 all_recipes_info = {
