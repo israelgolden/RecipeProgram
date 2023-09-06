@@ -1,0 +1,64 @@
+-- @block
+CREATE TABLE Users(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    bio TEXT,
+    country VARCHAR(2)
+);
+-- @block
+INSERT INTO Users (email, bio, country)
+VALUES
+    ('izzyg@gmail.com', 'i love staying in random rooms across the US','US'),
+    ('abbymartell@gmail.com', 'i also love that', 'UK')
+
+-- @block
+SELECT email, id from Users
+
+WHERE country = 'US'
+AND email LIKE 'i%'
+
+ORDER BY id ASC
+LIMIT 2;
+
+-- @block
+CREATE INDEX email_index ON Users(email);
+
+-- @block
+CREATE TABLE Rooms(
+    id INT AUTO_INCREMENT,
+    street VARCHAR(255),
+    owner_id INT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (owner_id) REFERENCES Users(id)
+);
+
+-- @block
+INSERT INTO Rooms(owner_id, street)
+VALUES
+    (1, 'san diego sailboat'),
+    (1, 'nantucket cottage'),
+    (1, 'vail cabin'),
+    (1, 'sf cardboard box');
+
+-- @block
+SELECT 
+
+Users.id AS 'user_id',
+Rooms.id AS 'room_id',
+email,
+street
+
+FROM Users
+INNER JOIN Rooms
+ON Rooms.owner_id = Users.id;
+
+-- @block
+CREATE TABLE Bookings(
+    id INT AUTO_INCREMENT,
+    guest_id INT NOT NULL,
+    room_id INT NOT NULL,
+    check_in DATETIME,
+    PRIMARY KEY (id),
+    FOREIGN KEY (guest_id) REFERENCES Users(id),
+    FOREIGN KEY (room_id) REFERENCES Rooms(id)
+);
