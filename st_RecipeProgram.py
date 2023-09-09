@@ -856,102 +856,103 @@ st.write("Apply filters to tailor your recipe search.")
 
 # Determine which ingredients are in season
 # Define a dictionary of ingredient seasons with start and end dates
-seasonal_ingredients = {
-    "Italian parsley": {"start_date": datetime(2023, 3,1), "end_date": datetime(2023, 6,30)},
-    "Persian cucumbers": {"start_date": datetime(2023, 5, 15), "end_date": datetime(2023, 9, 15)},
-    "asparagus": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "avocado": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "baby arugula": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "basil": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "breakfast radish": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "broccoli": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "brussel sprouts": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "butter lettuce": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "carrot": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "celery stalk": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "celery": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "cherry tomatoes": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "chives": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "cilantro": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "fennel bulb": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "fresh dill": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "fresh tarragon": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "fresh thyme": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "garlic": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "ginger": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "grapefruit": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "green coleslaw mix": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "jalapeño": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "large onion": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "large red onion": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "large yellow onion": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "lemon": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "lime": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "medium yellow onion": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "mint": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "mint, basil, parsley or dill": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "mixed mushrooms": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "orange": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "pineapple": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "plum tomatoes": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "poblano or green bell pepper": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "portobello mushrooms": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "radishes": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "red bell pepper": {"start_date": datetime(,2023 , ), "end_date": datetime(2023, , )},
-    "red grapes": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "red onion": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "red, orange, or yellow bell peppers": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "russet potatoes": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "scallions": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "shallots": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "small yellow onion": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "spinach": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "stone fruit": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "sweet or mild peppers": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "white onion": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "yellow onion": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "zucchini": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    # Add more ingredients and their date ranges here
-}
+# seasonal_ingredients = {
+#     "Italian parsley": {"start_date": datetime(2023, 3,1), "end_date": datetime(2023, 6,30)},
+#     "Persian cucumbers": {"start_date": datetime(2023, 5, 15), "end_date": datetime(2023, 9, 15)},
+#     "asparagus": {"start_date": datetime(2023, 3, 1), "end_date": datetime(2023, 6, 30)},
+#     "avocado": {"start_date": datetime(2023, 2, 1), "end_date": datetime(2023, 10, 31)},
+#     "baby arugula": {"start_date": datetime(2023, 3, 1), "end_date": datetime(2023, 11, 30)},
+#     "basil": {"start_date": datetime(2023, 5, 1), "end_date": datetime(2023, 10, 31)},
+#     "breakfast radish": {"start_date": datetime(2023, 8, 1), "end_date": datetime(2023, 9, 30)},
+#     "broccoli": {"start_date": datetime(2023, 3, 1), "end_date": datetime(2023, 12, 31)},
+    # "brussel sprouts": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "butter lettuce": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "carrot": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "celery stalk": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "celery": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "cherry tomatoes": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "chives": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "cilantro": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "fennel bulb": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "fresh dill": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "fresh tarragon": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "fresh thyme": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "garlic": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "ginger": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "grapefruit": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "green coleslaw mix": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "jalapeño": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "large onion": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "large red onion": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "large yellow onion": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "lemon": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "lime": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "medium yellow onion": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "mint": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "mint, basil, parsley or dill": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "mixed mushrooms": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "orange": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "pineapple": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "plum tomatoes": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "poblano or green bell pepper": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "portobello mushrooms": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "radishes": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "red bell pepper": {"start_date": datetime(,2023 , ), "end_date": datetime(2023, , )},
+    # "red grapes": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "red onion": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "red, orange, or yellow bell peppers": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "russet potatoes": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "scallions": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "shallots": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "small yellow onion": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "spinach": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "stone fruit": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "sweet or mild peppers": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "white onion": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "yellow onion": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+    # "zucchini": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
+# }
 
 # Add a new column "In Season" to your DataFrame based on today's date
 # Add a new column "In Season" to your DataFrame based on today's date
-today_date = datetime.now()
+# today_date = datetime.now()
 
-def is_ingredient_in_season(ingredient_season):
-    today_month_day = today_date.strftime("%m-%d")
-    start_month_day = ingredient_season["start_date"].strftime("%m-%d")
-    end_month_day = ingredient_season["end_date"].strftime("%m-%d")
+# def is_ingredient_in_season(ingredient_season):
+#     today_month_day = today_date.strftime("%m-%d")
+#     start_month_day = ingredient_season["start_date"].strftime("%m-%d")
+#     end_month_day = ingredient_season["end_date"].strftime("%m-%d")
     
-    # Check if today's month and day fall within the specified range
-    return start_month_day <= today_month_day <= end_month_day
+#     # Check if today's month and day fall within the specified range
+#     return start_month_day <= today_month_day <= end_month_day
 
-all_recipes_df["In Season"] = all_recipes_df.apply(lambda row: is_ingredient_in_season(seasonal_ingredients.get(row["Recipe Name"], {})), axis=1)
+# all_recipes_df["In Season"] = all_recipes_df.apply(lambda row: is_ingredient_in_season(seasonal_ingredients.get(row["Recipe Name"], {})), axis=1)
 
 # Create a layout with four columns for filters
-col1, col2, col3, col4 = st.columns(4)
-
-# Checkbox to show in-season recipes only
-show_in_season_only = col1.checkbox("Show in-season recipes only")
+col1, col2, col3 = st.columns(3)
 
 # Filter Recipes by Type
-# Filter Recipes by Ingredient Season
-with col2:
-    selected_ingredient = st.multiselect("Select Ingredient:", ["All"] + list(seasonal_ingredients.keys()))
-    if "All" not in selected_ingredient:
-        all_recipes_df = all_recipes_df[all_recipes_df["Recipe Name"].apply(lambda recipe_name: any(is_ingredient_in_season(seasonal_ingredients.get(ingredient, {})) for ingredient in selected_ingredient))]
-
-# Filter Recipes by Maximum Kcal per Serving
-with col3:
-    max_kcal = st.slider("Maximum Kcal per Serving:", 0, max(all_recipes_df["Kcal per Serving"]), max(all_recipes_df["Kcal per Serving"]))
-    all_recipes_df = all_recipes_df[all_recipes_df["Kcal per Serving"] <= max_kcal]
-
-# Filter Recipes by Recipe Type
-with col4:
+with col1:
     selected_type = st.selectbox("Select Recipe Type:", ["All"] + list(set(all_recipes_df["Side or Main"])))
     if selected_type != "All":
         all_recipes_df = all_recipes_df[all_recipes_df["Side or Main"] == selected_type]
 
+# Filter Recipes by Maximum Kcal per Serving
+with col2:
+    max_kcal = st.slider("Maximum Kcal per Serving:", 0, max(all_recipes_df["Kcal per Serving"]), max(all_recipes_df["Kcal per Serving"]))
+    all_recipes_df = all_recipes_df[all_recipes_df["Kcal per Serving"] <= max_kcal]
+
+# Filter Recipes by Contributor
+with col3:
+    selected_contributor = st.selectbox("Select Contributor:", ["All"] + list(set(all_recipes_df["Contributor"])))
+    if selected_contributor != "All":
+        all_recipes_df = all_recipes_df[all_recipes_df["Contributor"] == selected_contributor]
+
+# Display the filtered DataFrame
+st.dataframe(all_recipes_df)
+st.download_button(label = 'Download Recipe Spreadsheet', 
+                   data = all_recipes_df.to_csv(), 
+                   mime='text/csv', 
+                   file_name='RecipeSpreadsheet')
 # Display the filtered DataFrame
 st.dataframe(all_recipes_df)
 st.download_button(label = 'Download Recipe Spreadsheet', 
