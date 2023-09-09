@@ -978,7 +978,7 @@ with col2:
     max_kcal = st.slider("Maximum Kcal per Serving:", 0, max(all_recipes_df["Kcal per Serving"]), max(all_recipes_df["Kcal per Serving"]))
     all_recipes_df = all_recipes_df[all_recipes_df["Kcal per Serving"] <= max_kcal]
 
-# Filter Recipes by Contributor
+# Filter Recipes by Diet
 with col3:
     selected_diet = st.selectbox("Select Diet:", ["All"] + list(set(all_recipes_df["Diet"])))
     if selected_diet != "All":
