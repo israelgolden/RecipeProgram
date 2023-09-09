@@ -1,26 +1,3 @@
-import streamlit as st
-import pandas as pd
-from collections import defaultdict
-from io import BytesIO
-from datetime import datetime
-
-# Let's get rid of the "Made with Streamlit" at the bottom of the page
-st.markdown("""
-<style>
-.css-cio0dv.ea3mdgi1,
-.css-fblp2m.ex0cdmw0
-{
-            visibility: hidden;
-}            
-</style>
-""", unsafe_allow_html= True
-)
-
-# Title and description
-st.title("Shopping List Generator")
-st.write("Select recipes and generate a shopping list organized by category.")
-
-# Recipe Data
 recipes = {
     "Blackened Fish with Quick Grits": {
         "ingredients": [
@@ -131,7 +108,7 @@ recipes = {
     "Chicken Zucchini Meatballs with Feta": {
         "ingredients": [
             {"ingredient": "zucchini", "unit": "null", "quantity": 3, "category": "Produce"},
-            {"ingredient": "shallots", "unit": "null", "quantity": 1, "category": "Produce"},
+            {"ingredient": "shallot", "unit": "null", "quantity": 1, "category": "Produce"},
             {"ingredient": "panko bread crumbs", "unit": "cup", "quantity": 0.5, "category": "Pasta, Rice & Cereal"},
             {"ingredient": "ground cumin", "unit": "tsp", "quantity": 1.5, "category": "Condiments & Spices"},
             {"ingredient": "ground chicken", "unit": "pound", "quantity": 1, "category": "Protein"},
@@ -169,7 +146,7 @@ recipes = {
             {"ingredient": "unsalted butter", "unit": "cup", "quantity": 0.25, "category": "Dairy"},
             {"ingredient": "garlic", "unit": "cloves", "quantity": 4, "category": "Produce"},
             {"ingredient": "red-pepper flakes", "unit": "tsp", "quantity": 0.25, "category": "Condiments & Spices"},
-            {"ingredient": "cherry tomatoes", "unit": "pint", "quantity": 2, "category": "Produce"},
+            {"ingredient": "cherry tomates", "unit": "pint", "quantity": 2, "category": "Produce"},
             {"ingredient": "basil", "unit": "leaves", "quantity": 10, "category": "Produce"},
             {"ingredient": "fresh mozzarella", "unit": "oz", "quantity": 8, "category": "Dairy"},
         ],
@@ -437,7 +414,7 @@ recipes = {
             {"ingredient": "feta", "unit": "cup", "quantity": 0.5, "category": "Dairy"},
             {"ingredient": "Italian parsley", "unit": "cup", "quantity": 0.25, "category": "Produce"},
             {"ingredient": "mint", "unit": "cup", "quantity": 0.25, "category": "Produce"},
-            {"ingredient": "Persian cucumbers", "unit": "null", "quantity": 1, "category": "Produce"},
+            {"ingredient": "Persian cucumber", "unit": "null", "quantity": 1, "category": "Produce"},
             {"ingredient": "scallions", "unit": "null", "quantity": 2, "category": "Produce"},
 
         ],
@@ -572,7 +549,7 @@ recipes = {
             {"ingredient": "Italian parsley", "unit": "cup", "quantity": 1.25, "category": "Produce"},
             {"ingredient": "grated cheddar", "unit": "cup", "quantity": 0.3, "category": "Dairy"},
             {"ingredient": "cheddar", "unit": "slices", "quantity": 8, "category": "Dairy"},
-            {"ingredient": "shallots", "unit": "null", "quantity": 1, "category": "Produce"},
+            {"ingredient": "shallot", "unit": "null", "quantity": 1, "category": "Produce"},
             {"ingredient": "garlic", "unit": "cloves", "quantity": 3, "category": "Produce"},
             {"ingredient": "ground cumin", "unit": "tsp", "quantity": 1, "category": "Condiments & Spices"},
             {"ingredient": "red-pepper flakes", "unit": "tsp", "quantity": 0.5, "category": "Condiments & Spices"},
@@ -753,208 +730,23 @@ recipes = {
     }
 }
 
-# Initialize the shopping list as a defaultdict to sum quantities of shared ingredients
-shopping_list = defaultdict(float)
+#
+def list_unique_ingredients(recipes):
+    unique_ingredients = set()
 
-# Create a multi-select dropdown to select recipes
-selected_recipes = st.multiselect("Select Recipes:", list(recipes.keys()))
-
-# Quantity format function
-def format_quantity(quantity, unit):
-    if unit == "null":
-        return str(int(quantity))
-    elif quantity.is_integer():
-        return str(int(quantity)) + " " + unit
-    else:
-        return "{:.2f}".format(quantity) + " " + unit
-
-#  Shopping list generator function!
-def generate_shopping_list(selected_recipes, recipes):
-    shopping_list = defaultdict(float)
-    selected_recipe_info = []  # List to store selected recipes and URLs
-
-    for recipe_name in selected_recipes:
-        recipe = recipes[recipe_name]
-        ingredients = recipe["ingredients"]
+    for recipe_name, recipe_data in recipes.items():
+        ingredients = recipe_data["ingredients"]
         for ingredient_data in ingredients:
             ingredient = ingredient_data["ingredient"]
-            unit = ingredient_data["unit"]
-            quantity = ingredient_data["quantity"]
-            category = ingredient_data["category"]
-
-            # Combine quantities for shared ingredients
-            shopping_list[(category, ingredient, unit)] += quantity
-
-        # Add selected recipe and its URL to the list
-        selected_recipe_info.append((recipe_name, recipe["url"]))
-
-    return shopping_list, selected_recipe_info
-
-# Display shopping list organized by category with items sorted alphabetically
-if st.button("Generate Shopping List"):
-    shopping_list, selected_recipe_info = generate_shopping_list(selected_recipes, recipes)
-
-    # Sort the categories alphabetically
-    categories = sorted(set(category for (category, _, _) in shopping_list.keys()))
-    
-    for category in categories:
-        st.subheader(f"{category}:")
-        
-        # Sort the items within each category alphabetically
-        sorted_items = sorted([(ingredient, unit, quantity) for (cat, ingredient, unit), quantity in shopping_list.items() if cat == category], key=lambda x: x[0])
-        
-        for ingredient, unit, total_quantity in sorted_items:
-            formatted_quantity = format_quantity(total_quantity, unit)
-            st.write(f"- {formatted_quantity} {ingredient}")
-
-    # Display selected recipes and their URLs
-    st.subheader("Selected Recipes and URLs:")
-    for recipe_name, url in selected_recipe_info:
-        st.write(f"- {recipe_name}: {url}")
-
-# Download shopping list as a .txt file with today's date
-if shopping_list:
-    # Get today's date and format it as MM_DD_YYYY
-    today_date = datetime.today().strftime("%m_%d_%Y")
-    # Create the custom filename
-    filename = f"ShoppingList_{today_date}.txt"
-
-    txt_data = "\n\n".join([f"{category}:\n" + "\n".join([f"- {format_quantity(quantity, unit)} {ingredient}" for (cat, ingredient, unit), quantity in shopping_list.items() if cat == category]) for category in categories])
-    
-    # Include selected recipes and URLs in the .txt file content
-    txt_data += "\n\nSelected Recipes and URLs:\n"
-    for recipe_name, url in selected_recipe_info:
-        txt_data += f"- {recipe_name}: {url}\n"
-
-    # Create a temporary file and write the data to it
-    with open(filename, "w") as f:
-        f.write(txt_data)
-
-    # Use click to create a download link with the custom filename
-    st.subheader("Download Shopping List")
-    with open(filename, "rb") as f:
-        st.download_button(label=f"Download Shopping List", data=f, key="download_btn", file_name=filename)
+            if ingredient_data["category"] == 'Produce':
+                unique_ingredients.add(f'"{ingredient}"')
 
 
-# Create a DataFrame with all recipes from the dictionary
-all_recipes_info = {
-    "Recipe Name": list(recipes.keys()),
-    "Number of Servings": [recipes[recipe]["Servings"] for recipe in recipes],
-    "Kcal per Serving": [recipes[recipe]["Kcal/Serving"] for recipe in recipes],
-    "Side or Main": [recipes[recipe]["Type"] for recipe in recipes],
-    "Contributor": [recipes[recipe]["Contributor"] for recipe in recipes],
-    "Link": [recipes[recipe]["url"] for recipe in recipes],
-}
+    # Convert the set of unique ingredients to a sorted list
+    unique_ingredients_list = sorted(unique_ingredients)
 
-all_recipes_df = pd.DataFrame(all_recipes_info)
+    # Print the unique ingredients
+    for ingredient in unique_ingredients_list:
+        print(ingredient)
 
-
-# Display the DataFrame
-st.subheader("Recipe Data Frame:")
-st.write("Apply filters to tailor your recipe search.")
-# st.dataframe(all_recipes_df)
-
-# Determine which ingredients are in season
-# Define a dictionary of ingredient seasons with start and end dates
-seasonal_ingredients = {
-    "Italian parsley": {"start_date": datetime(2023, 3,1), "end_date": datetime(2023, 6,30)},
-    "Persian cucumbers": {"start_date": datetime(2023, 5, 15), "end_date": datetime(2023, 9, 15)},
-    "asparagus": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "avocado": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "baby arugula": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "basil": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "breakfast radish": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "broccoli": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "brussel sprouts": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "butter lettuce": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "carrot": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "celery stalk": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "celery": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "cherry tomatoes": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "chives": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "cilantro": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "fennel bulb": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "fresh dill": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "fresh tarragon": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "fresh thyme": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "garlic": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "ginger": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "grapefruit": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "green coleslaw mix": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "jalapeño": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "large onion": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "large red onion": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "large yellow onion": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "lemon": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "lime": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "medium yellow onion": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "mint": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "mint, basil, parsley or dill": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "mixed mushrooms": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "orange": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "pineapple": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "plum tomatoes": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "poblano or green bell pepper": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "portobello mushrooms": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "radishes": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "red bell pepper": {"start_date": datetime(,2023 , ), "end_date": datetime(2023, , )},
-    "red grapes": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "red onion": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "red, orange, or yellow bell peppers": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "russet potatoes": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "scallions": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "shallots": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "small yellow onion": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "spinach": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "stone fruit": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "sweet or mild peppers": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "white onion": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "yellow onion": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    "zucchini": {"start_date": datetime(2023, , ), "end_date": datetime(2023, , )},
-    # Add more ingredients and their date ranges here
-}
-
-# Add a new column "In Season" to your DataFrame based on today's date
-# Add a new column "In Season" to your DataFrame based on today's date
-today_date = datetime.now()
-
-def is_ingredient_in_season(ingredient_season):
-    today_month_day = today_date.strftime("%m-%d")
-    start_month_day = ingredient_season["start_date"].strftime("%m-%d")
-    end_month_day = ingredient_season["end_date"].strftime("%m-%d")
-    
-    # Check if today's month and day fall within the specified range
-    return start_month_day <= today_month_day <= end_month_day
-
-all_recipes_df["In Season"] = all_recipes_df.apply(lambda row: is_ingredient_in_season(seasonal_ingredients.get(row["Recipe Name"], {})), axis=1)
-
-# Create a layout with four columns for filters
-col1, col2, col3, col4 = st.columns(4)
-
-# Checkbox to show in-season recipes only
-show_in_season_only = col1.checkbox("Show in-season recipes only")
-
-# Filter Recipes by Type
-# Filter Recipes by Ingredient Season
-with col2:
-    selected_ingredient = st.multiselect("Select Ingredient:", ["All"] + list(seasonal_ingredients.keys()))
-    if "All" not in selected_ingredient:
-        all_recipes_df = all_recipes_df[all_recipes_df["Recipe Name"].apply(lambda recipe_name: any(is_ingredient_in_season(seasonal_ingredients.get(ingredient, {})) for ingredient in selected_ingredient))]
-
-# Filter Recipes by Maximum Kcal per Serving
-with col3:
-    max_kcal = st.slider("Maximum Kcal per Serving:", 0, max(all_recipes_df["Kcal per Serving"]), max(all_recipes_df["Kcal per Serving"]))
-    all_recipes_df = all_recipes_df[all_recipes_df["Kcal per Serving"] <= max_kcal]
-
-# Filter Recipes by Recipe Type
-with col4:
-    selected_type = st.selectbox("Select Recipe Type:", ["All"] + list(set(all_recipes_df["Side or Main"])))
-    if selected_type != "All":
-        all_recipes_df = all_recipes_df[all_recipes_df["Side or Main"] == selected_type]
-
-# Display the filtered DataFrame
-st.dataframe(all_recipes_df)
-st.download_button(label = 'Download Recipe Spreadsheet', 
-                   data = all_recipes_df.to_csv(), 
-                   mime='text/csv', 
-                   file_name='RecipeSpreadsheet')
+list_unique_ingredients(recipes)
