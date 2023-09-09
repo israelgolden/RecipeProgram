@@ -43,7 +43,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 538,
-        "Contributor": "Israel Golden"
+        "Contributor": "Israel Golden",
+        "Diet": "Omnivorous"
     },
     "Broccoli Cheddar Soup": {
         "ingredients": [
@@ -55,14 +56,14 @@ recipes = {
             {"ingredient": "chicken stock", "unit": "cup", "quantity": 3, "category": "Soups, Sauces, and Gravies"},
             {"ingredient": "half-and-half", "unit": "cup", "quantity": 2, "category": "Dairy"},
             {"ingredient": "shredded cheddar", "unit": "oz", "quantity": 8, "category": "Dairy"},
-            {"ingredient": "nutmeg", "unit": "tsp", "quantity": 0.25, "category": "Condiments & Spices"},
-
+            {"ingredient": "nutmeg", "unit": "tsp", "quantity": 0.25, "category": "Condiments & Spices"}
         ],
         "url": "https://cooking.nytimes.com/recipes/1019106-broccoli-and-cheddar-soup",
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 665,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Vegetarian"
     },
     "Buttermilk Green Goddess Slaw": {
         "ingredients": [
@@ -74,7 +75,8 @@ recipes = {
         "Type": "Side",
         "Servings": 6,
         "Kcal/Serving": 149,
-        "Contributor": "Israel Golden"
+        "Contributor": "Israel Golden",
+        "Diet": "Vegetarian"
     },
     "Cheesy White Bean Tomato Bake": {
         "ingredients": [
@@ -88,7 +90,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 375,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Vegetarian"
     },
     "Chicken Salad with Walnuts and Grapes": {
         "ingredients": [
@@ -107,7 +110,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 807,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Omnivorous"
     },
     "Chicken Thighs with Sour Cherries and Cucumber Yogurt": {
         "ingredients": [
@@ -126,7 +130,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 593,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Omnivorous"
     },
     "Chicken Zucchini Meatballs with Feta": {
         "ingredients": [
@@ -143,7 +148,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 468,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Omnivorous"
     },
     "Creamy White Beans with Herb Oil": {
         "ingredients": [
@@ -160,7 +166,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 457,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Vegetarian"
     },
     "Crispy Gnocchi with Burst Tomatoes and Mozzarella": {
         "ingredients": [
@@ -177,7 +184,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 510,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Vegetarian"
     },
     "Garlic Chicken with Guasaca Sauce": {
         "ingredients": [
@@ -196,7 +204,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 816,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Omnivorous"
     },
     "Garlicky Chicken Thighs With Scallion and Lime": {
         "ingredients": [
@@ -212,7 +221,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 370,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Omnivorous"
     },
     "Ginger Dill Salmon": {
         "ingredients": [
@@ -229,9 +239,10 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 570,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Omnivorous"
     },
-    "Lemon Dill Metaball with Orzo": {
+    "Lemon Dill Meatball with Orzo": {
         "ingredients": [
             {"ingredient": "fresh dill", "unit": "oz", "quantity": 3, "category": "Produce"},
             {"ingredient": "Greek yogurt", "unit": "cup", "quantity": 1, "category": "Dairy"},
@@ -248,7 +259,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 387,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Omnivorous"
     },
     "Mojo Chicken with Pineapple": {
         "ingredients": [
@@ -266,7 +278,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 496,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Omnivorous"
     },
     "Mushroom Stroganoff with Mashed Potatoes": {
         "ingredients": [
@@ -290,7 +303,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 495,
-        "Contributor": "Israel Golden"
+        "Contributor": "Israel Golden",
+        "Diet": "Vegetarian"
     },
     "Oklahoma Onion Burgers": {
         "ingredients": [
@@ -306,7 +320,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 626,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Omnivorous"
     },
     "Orecchiette with Corn, Jalapeño, Feta and Basil": {
         "ingredients": [
@@ -322,7 +337,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 578,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Vegetarian"
     },
     "Peach and Molasses Chicken": {
         "ingredients": [
@@ -341,7 +357,8 @@ recipes = {
         "Type": "Main",
         "Servings": 6,
         "Kcal/Serving": 644,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Omnivorous"
     },
     "Rice Noodles With Spicy Pork and Herbs": {
         "ingredients": [
@@ -361,11 +378,12 @@ recipes = {
             {"ingredient": "breakfast radish", "unit": "null", "quantity": 4, "category": "Produce"},
 
         ],
-            "url": "https://cooking.nytimes.com/recipes/1018852-rice-noodles-with-spicy-pork-and-herbs",
-            "Type": "Main",
-            "Servings": 4,
-            "Kcal/Serving": 311,
-            "Contributor": "Israel Golden"
+        "url": "https://cooking.nytimes.com/recipes/1018852-rice-noodles-with-spicy-pork-and-herbs",
+        "Type": "Main",
+        "Servings": 4,
+        "Kcal/Serving": 311,
+        "Contributor": "Israel Golden",
+        "Diet": "Omnivorous"
     },
     "Rigatoni alla Zozzona": {
         "ingredients": [
@@ -384,7 +402,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 893,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Omnivorous"
     },
     "Roasted Salmon and Brussels Sprouts with Citrus Soy Sauce": {
         "ingredients": [
@@ -401,7 +420,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 487,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Omnivorous"
     },
     "Rotisserie Chicken with Greens Pasta": {
         "ingredients": [
@@ -422,7 +442,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 696,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Omnivorous"
     },
     "Salmon and Couscous Salad with Cucumber Feta Dressing": {
         "ingredients": [
@@ -445,7 +466,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 640,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Omnivorous"
     },
     "Sesame Salmon Bowls": {
         "ingredients": [
@@ -468,7 +490,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 478,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Omnivorous"
     },
     "Shakshuka with Feta": {
         "ingredients": [
@@ -489,7 +512,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 383,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Vegetarian"
     },
     "Sheet-Pan Mushroom Parmagiana": {
         "ingredients": [
@@ -505,7 +529,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 446,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Vegetarian"
     },
     "Sheet-Pan Sausage With Peppers and Tomatoes": {
         "ingredients": [
@@ -520,7 +545,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 440,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Omnivorous"
     },
     "Shrimp Scampi With Orzo": {
         "ingredients": [
@@ -539,7 +565,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 364,
-        "Contributor": "Israel Golden"
+        "Contributor": "Israel Golden",
+        "Diet": "Omnivorous"
     }, 
     "Smashed Avocado & Chicken Burgers": {
         "ingredients": [
@@ -562,7 +589,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 635,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Omnivorous"
     },
     "Smashed Chicken Burgers with Cheddar and Parsley": {
         "ingredients": [
@@ -587,7 +615,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 1122,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Omnivorous"
     },
     "Spicy Honey Chicken with Broccoli": {
         "ingredients": [
@@ -603,7 +632,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 440,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Omnivorous"
     },
     "Stone Fruit Caprese": {
         "ingredients": [
@@ -618,7 +648,8 @@ recipes = {
         "Type": "Side",
         "Servings": 4,
         "Kcal/Serving": 300,
-        "Contributor": "Israel Golden"
+        "Contributor": "Israel Golden",
+        "Diet": "Vegetarian"
     },    
     "Stuffed Peppers": {
         "ingredients": [
@@ -641,7 +672,8 @@ recipes = {
         "Type": "Main",
         "Servings": 6,
         "Kcal/Serving": 320,
-        "Contributor": "Israel Golden"
+        "Contributor": "Israel Golden",
+        "Diet": "Vegetarian"
     },  
     "Tomato Bruschetta": {
         "ingredients": [
@@ -655,7 +687,8 @@ recipes = {
         "Type": "Side",
         "Servings": 4,
         "Kcal/Serving": 177,
-        "Contributor": "Israel Golden"
+        "Contributor": "Israel Golden",
+        "Diet": "Vegetarian"
     },
     "Tuna Melt": {
         "ingredients": [
@@ -674,7 +707,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 954,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Omnivorous"
     },
     "Tuna Salad Sandwiches": {
         "ingredients": [
@@ -693,7 +727,8 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 490,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Omnivorous"
     },
 
     "Vegetarian Tamale Pie": {
@@ -725,6 +760,7 @@ recipes = {
         "Servings": 6,
         "Kcal/Serving": 534,
         "Contributor": "Irsael Golden",
+        "Diet": "Vegetarian"
     },
     "White Bean Primavera": {
         "ingredients": [
@@ -742,14 +778,14 @@ recipes = {
             {"ingredient": "lemon", "unit": "null", "quantity": 1, "category": "Produce"},
             {"ingredient": "parmesan", "unit": "oz", "quantity": 2, "category": "Dairy"},
             {"ingredient": "Dijon mustard", "unit": "tbsp", "quantity": 1, "category": "Condiments & Spices"},
-            {"ingredient": "basil", "unit": "leaves", "quantity": 5, "category": "Produce"},
-
+            {"ingredient": "basil", "unit": "leaves", "quantity": 5, "category": "Produce"}
         ],
         "url": "https://cooking.nytimes.com/recipes/1023182-white-bean-primavera",
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 540,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Irsael Golden",
+        "Diet": "Omnivorous"
     }
 }
 
@@ -839,9 +875,10 @@ if shopping_list:
 # Create a DataFrame with all recipes from the dictionary
 all_recipes_info = {
     "Recipe Name": list(recipes.keys()),
-    "Number of Servings": [recipes[recipe]["Servings"] for recipe in recipes],
-    "Kcal per Serving": [recipes[recipe]["Kcal/Serving"] for recipe in recipes],
-    "Side or Main": [recipes[recipe]["Type"] for recipe in recipes],
+    "# of Servings": [recipes[recipe]["Servings"] for recipe in recipes],
+    "Kcal/Serving": [recipes[recipe]["Kcal/Serving"] for recipe in recipes],
+    "Diet": [recipes[recipe]["Diet"] for recipe in recipes],
+    "Main/Side": [recipes[recipe]["Type"] for recipe in recipes],
     "Contributor": [recipes[recipe]["Contributor"] for recipe in recipes],
     "Link": [recipes[recipe]["url"] for recipe in recipes],
 }
@@ -943,9 +980,9 @@ with col2:
 
 # Filter Recipes by Contributor
 with col3:
-    selected_contributor = st.selectbox("Select Contributor:", ["All"] + list(set(all_recipes_df["Contributor"])))
-    if selected_contributor != "All":
-        all_recipes_df = all_recipes_df[all_recipes_df["Contributor"] == selected_contributor]
+    selected_diet = st.selectbox("Select Diet:", ["All"] + list(set(all_recipes_df["Diet"])))
+    if selected_diet != "All":
+        all_recipes_df = all_recipes_df[all_recipes_df["Diet"] == selected_diet]
 
 # Display the filtered DataFrame
 st.dataframe(all_recipes_df)
