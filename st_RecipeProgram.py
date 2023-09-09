@@ -967,23 +967,24 @@ st.write("Apply filters to tailor your recipe search.")
 # Create a layout with four columns for filters
 col1, col2, col3 = st.columns(3)
 
-# Filter Recipes by Type
+
+# Filter Recipes by Diet
 with col1:
-    selected_type = st.selectbox("Select Recipe Type:", ["All"] + list(set(all_recipes_df["Main/Side"])))
-    if selected_type != "All":
-        all_recipes_df = all_recipes_df[all_recipes_df["Main/Side"] == selected_type]
+    selected_diet = st.selectbox("Select Diet:", ["All"] + list(set(all_recipes_df["Diet"])))
+    if selected_diet != "All":
+        all_recipes_df = all_recipes_df[all_recipes_df["Diet"] == selected_diet]
 
 # Filter Recipes by Maximum Kcal per Serving
 with col2:
     max_kcal = st.slider("Maximum Kcal per Serving:", 0, max(all_recipes_df["Kcal/Serving"]), max(all_recipes_df["Kcal/Serving"]))
     all_recipes_df = all_recipes_df[all_recipes_df["Kcal/Serving"] <= max_kcal]
 
-# Filter Recipes by Diet
+# Filter Recipes by Type
 with col3:
-    selected_diet = st.selectbox("Select Diet:", ["All"] + list(set(all_recipes_df["Diet"])))
-    if selected_diet != "All":
-        all_recipes_df = all_recipes_df[all_recipes_df["Diet"] == selected_diet]
-
+    selected_type = st.selectbox("Select Recipe Type:", ["All"] + list(set(all_recipes_df["Main/Side"])))
+    if selected_type != "All":
+        all_recipes_df = all_recipes_df[all_recipes_df["Main/Side"] == selected_type]
+        
 # Display the filtered DataFrame
 st.dataframe(all_recipes_df)
 st.download_button(label = 'Download Recipe Spreadsheet', 
