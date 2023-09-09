@@ -43,7 +43,7 @@ recipes = {
         "Type": "Main",
         "Servings": 4,
         "Kcal/Serving": 538,
-        "Contributor": "Irsael Golden"
+        "Contributor": "Israel Golden"
     },
     "Broccoli Cheddar Soup": {
         "ingredients": [
