@@ -673,7 +673,7 @@ recipes = {
         "Servings": 6,
         "Kcal/Serving": 320,
         "Contributor": "Israel Golden",
-        "Diet": "Vegetarian"
+        "Diet": "Omnivorous"
     },  
     "Tomato Bruschetta": {
         "ingredients": [
@@ -984,7 +984,7 @@ with col3:
     selected_type = st.selectbox("Select Recipe Type:", ["All"] + list(set(all_recipes_df["Main/Side"])))
     if selected_type != "All":
         all_recipes_df = all_recipes_df[all_recipes_df["Main/Side"] == selected_type]
-        
+
 # Display the filtered DataFrame
 st.dataframe(all_recipes_df)
 st.download_button(label = 'Download Recipe Spreadsheet', 
