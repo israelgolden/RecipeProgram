@@ -876,20 +876,3 @@ with col3:
 
 # Display the filtered DataFrame
 st.dataframe(all_recipes_df)
-# Create a button to download as Excel
-if st.button("Download Excel"):
-    # Create an in-memory Excel writer
-    excel_buffer = BytesIO()
-    with pd.ExcelWriter(excel_buffer, engine='xlsxwriter', mode='xlsx') as writer:
-        all_recipes_df.to_excel(writer, index=False)
-    
-    # Save the Excel file in memory
-    excel_data = excel_buffer.getvalue()
-    
-    # Create a link to download the file
-    st.download_button(
-        label="Download Recipe Spreadsheet",
-        data=excel_data,
-        file_name="RecipeSpreadsheet.xlsx",
-        key="download_button"
-    )
