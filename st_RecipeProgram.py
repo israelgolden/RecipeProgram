@@ -874,6 +874,8 @@ with col3:
     if selected_contributor != "All":
         all_recipes_df = all_recipes_df[all_recipes_df["Contributor"] == selected_contributor]
 
+# Display the filtered DataFrame
+st.dataframe(all_recipes_df)
 # Create a button to download as Excel
 if st.button("Download Excel"):
     # Create an in-memory Excel writer
