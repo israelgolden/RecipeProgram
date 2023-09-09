@@ -975,8 +975,8 @@ with col1:
 
 # Filter Recipes by Maximum Kcal per Serving
 with col2:
-    max_kcal = st.slider("Maximum Kcal per Serving:", 0, max(all_recipes_df["Kcal per Serving"]), max(all_recipes_df["Kcal per Serving"]))
-    all_recipes_df = all_recipes_df[all_recipes_df["Kcal per Serving"] <= max_kcal]
+    max_kcal = st.slider("Maximum Kcal per Serving:", 0, max(all_recipes_df["Kcal/Serving"]), max(all_recipes_df["Kcal/Serving"]))
+    all_recipes_df = all_recipes_df[all_recipes_df["Kcal/Serving"] <= max_kcal]
 
 # Filter Recipes by Diet
 with col3:
