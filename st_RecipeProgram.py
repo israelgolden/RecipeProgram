@@ -7,7 +7,8 @@ from datetime import datetime
 # Let's get rid of the "Made with Streamlit" at the bottom of the page
 st.markdown("""
 <style>
-.css-cio0dv.ea3mdgi1
+.css-cio0dv.ea3mdgi1,
+.css-fblp2m.ex0cdmw0
 {
             visibility: hidden;
 }            
