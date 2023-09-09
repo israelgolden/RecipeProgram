@@ -969,7 +969,7 @@ col1, col2, col3 = st.columns(3)
 
 # Filter Recipes by Type
 with col1:
-    selected_type = st.selectbox("Select Recipe Type:", ["All"] + list(set(all_recipes_df["Side or Main"])))
+    selected_type = st.selectbox("Select Recipe Type:", ["All"] + list(set(all_recipes_df["Main/Side"])))
     if selected_type != "All":
         all_recipes_df = all_recipes_df[all_recipes_df["Side or Main"] == selected_type]
 
