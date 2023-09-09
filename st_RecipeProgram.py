@@ -566,7 +566,7 @@ recipes = {
         "Servings": 4,
         "Kcal/Serving": 364,
         "Contributor": "Israel Golden",
-        "Diet": "Omnivorous"
+        "Diet": "Omnivorous",
     }, 
     "Smashed Avocado & Chicken Burgers": {
         "ingredients": [
