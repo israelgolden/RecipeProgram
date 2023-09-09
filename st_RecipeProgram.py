@@ -876,3 +876,14 @@ with col3:
 
 # Display the filtered DataFrame
 st.dataframe(all_recipes_df)
+if st.button("Download Excel"):
+    # Generate the Excel file
+    excel_file = all_recipes_df.to_excel(index=False)
+
+    # Create a link to download the file
+    st.download_button(
+        label="Download Recipes Spreadsheet",
+        data=excel_file,
+        file_name="RecipeSpreadsheet.xlsx",
+        key="download_button"
+    )
