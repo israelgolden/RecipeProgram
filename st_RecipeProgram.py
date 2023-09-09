@@ -971,7 +971,7 @@ col1, col2, col3 = st.columns(3)
 with col1:
     selected_type = st.selectbox("Select Recipe Type:", ["All"] + list(set(all_recipes_df["Main/Side"])))
     if selected_type != "All":
-        all_recipes_df = all_recipes_df[all_recipes_df["Side or Main"] == selected_type]
+        all_recipes_df = all_recipes_df[all_recipes_df["Main/Side"] == selected_type]
 
 # Filter Recipes by Maximum Kcal per Serving
 with col2:
