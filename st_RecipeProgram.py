@@ -120,7 +120,7 @@ recipes = {
             {"ingredient": "bay leaf", "unit": "null", "quantity": 1, "category": "Condiments & Spices"},
             {"ingredient": "Persian cucumbers", "unit": "cup", "quantity": 2, "category": "Produce"},
             {"ingredient": "sour cherries", "unit": "cup", "quantity": 2, "category": "Canned Goods"},
-            {"ingredient": "Greek yogurt", "unit": "cup", "quantity": 1, "category": ""},
+            {"ingredient": "Greek yogurt", "unit": "cup", "quantity": 1, "category": "Dairy"},
         ],
         "url": "https://cooking.nytimes.com/recipes/1023314-chicken-thighs-with-sour-cherries-and-cucumber-yogurt",
         "Type": "Main",
