@@ -82,7 +82,7 @@ recipes = {
             {"ingredient": "garlic", "unit": "cloves", "quantity": 3, "category": "Produce"},
             {"ingredient": "tomato paste", "unit": "tbsp", "quantity": 3, "category": "Canned Goods"},
             {"ingredient": "white beans", "unit": "can", "quantity": 2, "category": "Canned Goods"},
-            {"ingredient": "shredded mozzarella", "unit": "oz", "quantity": "16", "category": "Dairy"},
+            {"ingredient": "shredded mozzarella", "unit": "oz", "quantity": 16, "category": "Dairy"},
         ],
         "url": "https://cooking.nytimes.com/recipes/1019681-cheesy-white-bean-tomato-bake",
         "Type": "Main",
