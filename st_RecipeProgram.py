@@ -876,4 +876,4 @@ with col3:
 
 # Display the filtered DataFrame
 st.dataframe(all_recipes_df)
-st.download_button(label = 'Download Recipe Spreadsheet', data = all_recipes_df.to_csv())
+st.download_button(label = 'Download Recipe Spreadsheet', data = all_recipes_df.to_csv(), mime='text/csv')
